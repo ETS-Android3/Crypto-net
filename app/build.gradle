@@ -5,6 +5,11 @@ plugins {
 android {
     compileSdk 32
 
+    testOptions {
+        unitTests {
+            includeAndroidResources = true
+        }
+    }
     defaultConfig {
         applicationId "com.moringaschool.cryptonet"
         minSdk 21
@@ -35,4 +40,15 @@ dependencies {
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.3'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
+    //Robolectric dependencies
+    testImplementation 'org.robolectric:robolectric:4.4'
+    //Espresso dependencies
+    androidTestImplementation 'androidx.test:runner:1.3.0'
+    androidTestImplementation 'androidx.test:rules:1.3.0'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
+    //ButterKnife dependencies
+    implementation 'com.jakewharton:butterknife:10.2.0'
+    annotationProcessor 'com.jakewharton:butterknife-compiler:10.2.0'
 }
+
+
