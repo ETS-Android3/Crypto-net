@@ -2,63 +2,54 @@ package com.moringaschool.cryptonet;
 
 import android.os.Bundle;
 
+import androidx.fragment.app.DialogFragment;
 import androidx.fragment.app.Fragment;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
 
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link TypeOfCryptoDialog#newInstance} factory method to
- * create an instance of this fragment.
- */
-public class TypeOfCryptoDialog extends Fragment {
 
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
+public class TypeOfCryptoDialog extends DialogFragment   {
+    public static final String TAG = TypeOfCryptoDialog.class.getSimpleName();
 
-    // TODO: Rename and change types of parameters
-    private String mParam1;
-    private String mParam2;
 
-    public TypeOfCryptoDialog() {
-        // Required empty public constructor
-    }
+    //    @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+//
+        View rootView = inflater.inflate(R.layout.fragment_type_of_crypto_dialog, container, false);
+//
+//
+        RadioGroup surveyRadioGroup = (RadioGroup) rootView.findViewById(R.id.moodRadioGroup); //pull group
 
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment TypeOfCryptoDialog.
-     */
-    // TODO: Rename and change types and number of parameters
-    public static TypeOfCryptoDialog newInstance(String param1, String param2) {
-        TypeOfCryptoDialog fragment = new TypeOfCryptoDialog();
-        Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
-        fragment.setArguments(args);
-        return fragment;
-    }
+        int selectedId = surveyRadioGroup.getCheckedRadioButtonId(); //get selected ID
 
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
-        }
-    }
+        final RadioButton selectedRadioButton = (RadioButton) rootView.findViewById(selectedId); //get radio button val via ID
 
-    @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_type_of_crypto_dialog, container, false);
-    }
+        Button cancelButton = (Button) rootView.findViewById(R.id.cancelButton);
+        Button submitButton = (Button) rootView.findViewById(R.id.submitButton);
+
+        submitButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Log.d(TAG, selectedRadioButton.getText().toString());
+                dismiss();
+            }
+        });
+        cancelButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                dismiss();
+            }
+        });
+
+
+        return rootView;
+  }
+
+
 }
