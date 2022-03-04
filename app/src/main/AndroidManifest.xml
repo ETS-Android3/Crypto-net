@@ -12,11 +12,9 @@
         <activity
             android:name=".ShowdetailActivity"
             android:exported="false">
-
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.moringaschool.cryptonet.DetailActivity">
-            </meta-data>
+                android:value="com.moringaschool.cryptonet.DetailActivity"></meta-data>
         </activity>
         <activity
             android:name=".DetailActivity"
@@ -24,8 +22,7 @@
             android:theme="@style/Theme.detailActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.moringaschool.cryptonet.MainActivity">
-            </meta-data>
+                android:value="com.moringaschool.cryptonet.MainActivity"></meta-data>
         </activity>
         <activity
             android:name=".MainActivity"
