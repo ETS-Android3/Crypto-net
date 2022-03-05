@@ -11,21 +11,22 @@
         android:theme="@style/Theme.Cryptonet">
         <activity
             android:name=".ShowdetailActivity"
+            android:theme="@style/Theme.showdetailActivity"
             android:exported="false">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.moringaschool.cryptonet.DetailActivity"></meta-data>
+                android:value="com.moringaschool.cryptonet.ui.DetailActivity"></meta-data>
         </activity>
         <activity
-            android:name=".DetailActivity"
+            android:name=".ui.DetailActivity"
             android:exported="false"
             android:theme="@style/Theme.detailActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.moringaschool.cryptonet.MainActivity"></meta-data>
+                android:value="com.moringaschool.cryptonet.ui.MainActivity"></meta-data>
         </activity>
         <activity
-            android:name=".MainActivity"
+            android:name=".ui.MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

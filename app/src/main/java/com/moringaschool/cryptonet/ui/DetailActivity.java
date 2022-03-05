@@ -1,30 +1,25 @@
-package com.moringaschool.cryptonet;
+package com.moringaschool.cryptonet.ui;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.fragment.app.FragmentActivity;
 import androidx.fragment.app.FragmentManager;
-import androidx.fragment.app.FragmentTransaction;
 
-import android.app.ActionBar;
 import android.content.Intent;
-import android.graphics.Color;
-import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.TextView;
 import android.widget.Toast;
 
-import org.w3c.dom.Text;
+import com.moringaschool.cryptonet.R;
+import com.moringaschool.cryptonet.ShowdetailActivity;
+import com.moringaschool.cryptonet.TypeOfCryptoDialog;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
 public class DetailActivity extends AppCompatActivity implements View.OnClickListener {
     public static final String TAG = DetailActivity.class.getSimpleName();
-    @BindView(R.id.cryptoTypeButton) Button cryptoTypeButton;
+//    @BindView(R.id.cryptoTypeButton) Button cryptoTypeButton;
     @BindView(R.id.convertButton) Button convertButton;
     @BindView(R.id.numberOfCrypto) EditText numberOfCrypto; //edit text
 
@@ -36,11 +31,10 @@ public class DetailActivity extends AppCompatActivity implements View.OnClickLis
         setContentView(R.layout.activity_detail);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         ButterKnife.bind(this);
-        cryptoTypeButton.setOnClickListener(this);
+//        cryptoTypeButton.setOnClickListener(this);
 
 
-
-        convertButton.setOnClickListener(new View.OnClickListener() {
+       convertButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 //EDIT-TEXT
@@ -58,14 +52,14 @@ public class DetailActivity extends AppCompatActivity implements View.OnClickLis
 
     @Override
     public void onClick(View view) {
-        if(view == cryptoTypeButton){
-            FragmentManager fm = getSupportFragmentManager();
-            TypeOfCryptoDialog cryptoDialog = new TypeOfCryptoDialog();
-            cryptoDialog.show(fm ,"simple code");
-
-            //TOAST
-            Toast.makeText(DetailActivity.this,"choose cryptocurrency", Toast.LENGTH_LONG).show();
-
+//        if(view == cryptoTypeButton){
+//            FragmentManager fm = getSupportFragmentManager();
+//            TypeOfCryptoDialog cryptoDialog = new TypeOfCryptoDialog();
+//            cryptoDialog.show(fm ,"simple code");
+//
+//            //TOAST
+//            Toast.makeText(DetailActivity.this,"choose cryptocurrency", Toast.LENGTH_LONG).show();
+//
         }
 
 
@@ -75,4 +69,3 @@ public class DetailActivity extends AppCompatActivity implements View.OnClickLis
     }
 
 
-}
