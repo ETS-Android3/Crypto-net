@@ -20,12 +20,11 @@ public class ShowdetailActivity extends AppCompatActivity  {
             "Burgers", "Fast Food", "Noodle Soups",
             "Mexican", "BBQ", "Cuban", "Bar Food", "Sports Bar", "Breakfast", "Mexican" };
 
-    @BindView(R.id.cashConverted)
-    TextView cashConverted;
-    @BindView(R.id.coinSelected)
-    TextView coinSelected;
-    @BindView(R.id.mListView)
-    ListView mListView;
+    @BindView(R.id.cashConverted) TextView cashConverted;
+    @BindView(R.id.coinSelected) TextView coinSelected;
+    @BindView(R.id.mListView) ListView mListView;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -41,25 +40,6 @@ public class ShowdetailActivity extends AppCompatActivity  {
         //Adapter array
         CryptosInfoArrayAdapter adapter = new CryptosInfoArrayAdapter(this, android.R.layout.simple_list_item_1, cuisines);
         mListView.setAdapter(adapter);
-
-//        Intent intent = getIntent();
-//        intent.getStringExtra("editText_value_double");
-//
-//
-//        //receving capturedRadioButton from Detail activity
-//        String rb = intent.getStringExtra("receivedRbutton");
-//        coinSelected.setText(rb);
-//
-//        //receiving calcultion
-//        long lr = intent.getLongExtra("result",0L);
-//
-//        cashConverted.setText((int) lr);
-
-
-
-
-
-
 
 
     }

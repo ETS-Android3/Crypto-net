@@ -1,6 +1,6 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
-    <style name="Theme.Cryptonet" parent="Theme.MaterialComponents.Light.NoActionBar">
+    <style name="Theme.Cryptonet" parent="Theme.AppCompat.Light.NoActionBar">
         <!-- Primary brand color. -->
         <item name="colorPrimary">@color/purple_500</item>
         <item name="colorPrimaryVariant">@color/purple_700</item>
@@ -13,10 +13,21 @@
         <item name="colorAccent">@color/grey</item>
 
         <!-- Status bar color. -->
-        <item name="android:statusBarColor" tools:targetApi="l">?attr/colorOnPrimary</item>
+        <item name="android:statusBarColor" tools:targetApi="l">?attr/colorOnSecondary</item>
         <!-- Customize your theme here. -->
+
     </style>
-    <style name="Theme.detailActivity" parent="Theme.MaterialComponents.Light">
+
+    <style name="Theme.detailActivity" parent="Theme.AppCompat.Light">
         <item name="android:background">#F3F4F6</item> <!--changing bg-color of actionbar-->
     </style>
+
+    <style name="Theme.showdetailActivity" parent="Theme.AppCompat.Light">
+        <item name="colorAccent">@color/grey</item>
+        <item name="android:textColor">#0d0f1a</item>
+        <item name="backgroundColor">#ffffff</item>
+        <item name="android:statusBarColor" tools:targetApi="l">?attr/colorAccent</item>
+    </style>
+
+
 </resources>
