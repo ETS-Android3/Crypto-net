@@ -86,7 +86,7 @@ public class Kes {
         this.lastUpdated = lastUpdated;
     }
 
-    public Double getPrice() {
+    public double getPrice() {
         return price;
     }
 

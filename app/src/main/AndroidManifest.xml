@@ -10,7 +10,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Cryptonet">
         <activity
-            android:name=".ShowdetailActivity"
+            android:name=".ui.ShowdetailActivity"
             android:theme="@style/Theme.showdetailActivity"
             android:exported="false">
             <meta-data

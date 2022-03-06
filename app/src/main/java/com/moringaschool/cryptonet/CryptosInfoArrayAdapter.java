@@ -15,7 +15,6 @@ public class CryptosInfoArrayAdapter extends ArrayAdapter {
         this.mCuisines = mCuisines;
     }
 
-
     @Override
     public Object getItem(int position) {
         String cuisine = mCuisines[position];
