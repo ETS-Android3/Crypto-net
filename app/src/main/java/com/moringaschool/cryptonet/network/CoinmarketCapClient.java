@@ -10,10 +10,12 @@ import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
 import static com.moringaschool.cryptonet.Constant.BASE_URL;
-import static com.moringaschool.cryptonet.Constant.CMC_PRO_API_KEY;
+//import static com.moringaschool.cryptonet.Constant.CMC_PRO_API_KEY;
 
 public class CoinmarketCapClient {
     private static Retrofit retrofit = null;
+
+
     public static CoinMarketCapApi getClient(){
         if (retrofit == null) {
             OkHttpClient okHttpClient = new OkHttpClient.Builder()
@@ -21,7 +23,7 @@ public class CoinmarketCapClient {
                         @Override
                         public Response intercept(Chain chain) throws IOException {
                             Request newRequest = chain.request().newBuilder()
-                            .addHeader("Authorization", CMC_PRO_API_KEY)
+                            .addHeader("X-CMC_PRO_API_KEY","808fcef5-084a-4e05-80fb-e41ac516b10a")
                             .build();
                         return chain.proceed(newRequest);
                         }
@@ -37,5 +39,6 @@ public class CoinmarketCapClient {
 
         return retrofit.create(CoinMarketCapApi.class);//making request start!
     }
+
 
 }

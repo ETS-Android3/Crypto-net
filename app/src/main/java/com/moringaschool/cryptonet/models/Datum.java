@@ -4,14 +4,15 @@ package com.moringaschool.cryptonet.models;
 import java.util.List;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
-import com.moringaschool.cryptonet.models.Platform;
-import com.moringaschool.cryptonet.models.Quote;
 
 public class Datum {
 
     @SerializedName("id")
     @Expose
-    private Integer id;
+    private int id;
+    @SerializedName("price")
+    @Expose
+    private double price;
     @SerializedName("name")
     @Expose
     private String name;
@@ -23,7 +24,7 @@ public class Datum {
     private String slug;
     @SerializedName("num_market_pairs")
     @Expose
-    private Integer numMarketPairs;
+    private int numMarketPairs;
     @SerializedName("date_added")
     @Expose
     private String dateAdded;
@@ -32,19 +33,19 @@ public class Datum {
     private List<String> tags = null;
     @SerializedName("max_supply")
     @Expose
-    private Long maxSupply;
+    private Object maxSupply;
     @SerializedName("circulating_supply")
     @Expose
-    private Long circulatingSupply;
+    private double circulatingSupply;
     @SerializedName("total_supply")
     @Expose
-    private Long totalSupply;
+    private double totalSupply;
     @SerializedName("platform")
     @Expose
     private Platform platform;
     @SerializedName("cmc_rank")
     @Expose
-    private Integer cmcRank;
+    private int cmcRank;
     @SerializedName("self_reported_circulating_supply")
     @Expose
     private Object selfReportedCirculatingSupply;
@@ -84,9 +85,10 @@ public class Datum {
      * @param maxSupply
      * @param slug
      */
-    public Datum(Integer id, String name, String symbol, String slug, Integer numMarketPairs, String dateAdded, List<String> tags, Long maxSupply, Long circulatingSupply, Long totalSupply, Platform platform, Integer cmcRank, Object selfReportedCirculatingSupply, Object selfReportedMarketCap, String lastUpdated, Quote quote) {
+    public Datum(int id, double price, String name, String symbol, String slug, int numMarketPairs, String dateAdded, List<String> tags, Object maxSupply, double circulatingSupply, double totalSupply, Platform platform, int cmcRank, Object selfReportedCirculatingSupply, Object selfReportedMarketCap, String lastUpdated, Quote quote) {
         super();
         this.id = id;
+        this.price = price;
         this.name = name;
         this.symbol = symbol;
         this.slug = slug;
@@ -104,11 +106,19 @@ public class Datum {
         this.quote = quote;
     }
 
-    public Integer getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public double getPrice() {
+        return price;
+    }
+
+    public void setPrice(double price) {
+        this.price = price;
+    }
+
+    public void setId(int id) {
         this.id = id;
     }
 
@@ -136,11 +146,11 @@ public class Datum {
         this.slug = slug;
     }
 
-    public Integer getNumMarketPairs() {
+    public int getNumMarketPairs() {
         return numMarketPairs;
     }
 
-    public void setNumMarketPairs(Integer numMarketPairs) {
+    public void setNumMarketPairs(int numMarketPairs) {
         this.numMarketPairs = numMarketPairs;
     }
 
@@ -160,27 +170,27 @@ public class Datum {
         this.tags = tags;
     }
 
-    public Long getMaxSupply() {
+    public Object getMaxSupply() {
         return maxSupply;
     }
 
-    public void setMaxSupply(Long maxSupply) {
+    public void setMaxSupply(Object maxSupply) {
         this.maxSupply = maxSupply;
     }
 
-    public Long getCirculatingSupply() {
+    public double getCirculatingSupply() {
         return circulatingSupply;
     }
 
-    public void setCirculatingSupply(Long circulatingSupply) {
+    public void setCirculatingSupply(double circulatingSupply) {
         this.circulatingSupply = circulatingSupply;
     }
 
-    public Long getTotalSupply() {
+    public double getTotalSupply() {
         return totalSupply;
     }
 
-    public void setTotalSupply(Long totalSupply) {
+    public void setTotalSupply(double totalSupply) {
         this.totalSupply = totalSupply;
     }
 
@@ -192,11 +202,11 @@ public class Datum {
         this.platform = platform;
     }
 
-    public Integer getCmcRank() {
+    public int getCmcRank() {
         return cmcRank;
     }
 
-    public void setCmcRank(Integer cmcRank) {
+    public void setCmcRank(int cmcRank) {
         this.cmcRank = cmcRank;
     }
 

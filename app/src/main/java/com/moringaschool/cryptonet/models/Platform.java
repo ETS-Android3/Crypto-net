@@ -8,7 +8,7 @@ public class Platform {
 
     @SerializedName("id")
     @Expose
-    private Integer id;
+    private int id;
     @SerializedName("name")
     @Expose
     private String name;
@@ -37,7 +37,7 @@ public class Platform {
      * @param id
      * @param slug
      */
-    public Platform(Integer id, String name, String symbol, String slug, String tokenAddress) {
+    public Platform(int id, String name, String symbol, String slug, String tokenAddress) {
         super();
         this.id = id;
         this.name = name;
@@ -46,11 +46,11 @@ public class Platform {
         this.tokenAddress = tokenAddress;
     }
 
-    public Integer getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(int id) {
         this.id = id;
     }
 

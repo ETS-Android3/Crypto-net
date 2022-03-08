@@ -1,37 +1,32 @@
 
 package com.moringaschool.cryptonet.models;
+
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
 public class Status {
-
-    /** A Status object is always included for both successful calls and failures when possible.
-     * The Status object always includes the current time on the server when the call was executed as timestamp,
-     * the number of API call credits this call utilized as credit_count, and the number of milliseconds it took to process the request as elapsed.
-     * Any details about errors encountered can be found under the error_code and error_message
-     * */
 
     @SerializedName("timestamp")
     @Expose
     private String timestamp;
     @SerializedName("error_code")
     @Expose
-    private Integer errorCode;
+    private int errorCode;
     @SerializedName("error_message")
     @Expose
     private Object errorMessage;
     @SerializedName("elapsed")
     @Expose
-    private Integer elapsed;
+    private int elapsed;
     @SerializedName("credit_count")
     @Expose
-    private Integer creditCount;
+    private int creditCount;
     @SerializedName("notice")
     @Expose
     private Object notice;
     @SerializedName("total_count")
     @Expose
-    private Integer totalCount;
+    private int totalCount;
 
     /**
      * No args constructor for use in serialization
@@ -50,7 +45,7 @@ public class Status {
      * @param timestamp
      * @param notice
      */
-    public Status(String timestamp, Integer errorCode, Object errorMessage, Integer elapsed, Integer creditCount, Object notice, Integer totalCount) {
+    public Status(String timestamp, int errorCode, Object errorMessage, int elapsed, int creditCount, Object notice, int totalCount) {
         super();
         this.timestamp = timestamp;
         this.errorCode = errorCode;
@@ -69,11 +64,11 @@ public class Status {
         this.timestamp = timestamp;
     }
 
-    public Integer getErrorCode() {
+    public int getErrorCode() {
         return errorCode;
     }
 
-    public void setErrorCode(Integer errorCode) {
+    public void setErrorCode(int errorCode) {
         this.errorCode = errorCode;
     }
 
@@ -85,19 +80,19 @@ public class Status {
         this.errorMessage = errorMessage;
     }
 
-    public Integer getElapsed() {
+    public int getElapsed() {
         return elapsed;
     }
 
-    public void setElapsed(Integer elapsed) {
+    public void setElapsed(int elapsed) {
         this.elapsed = elapsed;
     }
 
-    public Integer getCreditCount() {
+    public int getCreditCount() {
         return creditCount;
     }
 
-    public void setCreditCount(Integer creditCount) {
+    public void setCreditCount(int creditCount) {
         this.creditCount = creditCount;
     }
 
@@ -109,11 +104,11 @@ public class Status {
         this.notice = notice;
     }
 
-    public Integer getTotalCount() {
+    public int getTotalCount() {
         return totalCount;
     }
 
-    public void setTotalCount(Integer totalCount) {
+    public void setTotalCount(int totalCount) {
         this.totalCount = totalCount;
     }
 

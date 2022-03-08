@@ -15,17 +15,11 @@
 
     </style>
 
-<!--    <style name="Theme.detailActivity" parent="Theme.AppCompat.Light.DarkActionBar">-->
-<!--        <item name="colorOnSecondary">@color/black</item>-->
-<!--        <item name="android:statusBarColor" tools:targetApi="l">?attr/colorOnSecondary</item>-->
-<!--        <item name="backgroundColor">@color/black</item>-->
-<!--        <item name="android:textColor">#ffffff</item>-->
-<!--    </style>-->
 
-    <style name="Theme.showdetailActivity" parent="Theme.AppCompat.DayNight.DarkActionBar">
+    <style name="Theme.showdetailActivity" parent="Theme.MaterialComponents.DayNight">
         <item name="colorOnSecondary">@color/black</item>
-        <item name="android:statusBarColor" tools:targetApi="l">?attr/colorOnSecondary</item>
-        <item name="background">@drawable/bgimg</item>
+        <item name="backgroundColor">#0d0f1a</item>
+        <item name="android:statusBarColor" tools:targetApi="l">?attr/backgroundColor</item>
         <item name="android:textColor">#ffffff</item>
     </style>
 </resources>
