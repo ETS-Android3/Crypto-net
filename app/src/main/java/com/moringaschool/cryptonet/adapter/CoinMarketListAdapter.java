@@ -35,10 +35,10 @@ public class CoinMarketListAdapter extends RecyclerView.Adapter<CoinMarketListAd
     @Override
     public CoinMarketViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.crypto_list_design, parent, false);
-        return new CoinMarketListAdapter.CoinMarketViewHolder(view);
+        CoinMarketViewHolder coinMarketViewHolder = new CoinMarketViewHolder(view);
+        return coinMarketViewHolder;
     }
 
-    @SuppressLint("SetTextI18n")
     @Override
     public void onBindViewHolder(CoinMarketListAdapter.CoinMarketViewHolder holder, int position) {
 //        holder.bindData(data.get(position));
