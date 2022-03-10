@@ -22,4 +22,10 @@
         <item name="android:statusBarColor" tools:targetApi="l">?attr/backgroundColor</item>
         <item name="android:textColor">#ffffff</item>
     </style>
+
+    <style name="Theme.account_create" parent="Theme.AppCompat.DayNight">
+        <item name="colorAccent">@color/grey</item>
+        <item name="colorOnSecondary">@color/black</item>
+        <item name="android:statusBarColor" tools:targetApi="l">?attr/colorOnSecondary</item>
+    </style>
 </resources>

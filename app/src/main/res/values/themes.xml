@@ -5,6 +5,7 @@
         <item name="colorPrimary">@color/purple_500</item>
         <item name="colorPrimaryVariant">@color/purple_700</item>
         <item name="colorOnPrimary">@color/white</item>
+        
 
         <!-- Secondary brand color. -->
         <item name="colorSecondary">@color/teal_200</item>
@@ -27,6 +28,12 @@
         <item name="android:textColor">#0d0f1a</item>
         <item name="backgroundColor">#ffffff</item>
         <item name="android:statusBarColor" tools:targetApi="l">?attr/colorAccent</item>
+    </style>
+
+    <style name="Theme.account_create" parent="Theme.AppCompat.Light">
+        <item name="colorAccent">@color/grey</item>
+        <item name="colorOnSecondary">@color/black</item>
+        <item name="android:statusBarColor" tools:targetApi="l">?attr/colorOnSecondary</item>
     </style>
 
 

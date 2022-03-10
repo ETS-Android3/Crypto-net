@@ -1,2 +1,5 @@
-package com.moringaschool.cryptonet.network;public class LogoCoinMarketClient {
+package com.moringaschool.cryptonet.network;
+
+public class LogoCoinMarketClient {
+
 }

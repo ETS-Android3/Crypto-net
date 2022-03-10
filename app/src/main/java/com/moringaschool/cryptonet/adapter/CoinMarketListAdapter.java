@@ -47,8 +47,6 @@ public class CoinMarketListAdapter extends RecyclerView.Adapter<CoinMarketListAd
         holder.coinLongName.setText(datum.getName());
         holder.coinShortName.setText(datum.getSymbol());
         holder.valueInKes.setText("$" + df2.format(datum.getQuote().getUsd().getPrice()));
-
-
     }
 
     @Override

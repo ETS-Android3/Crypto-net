@@ -9,7 +9,13 @@ import android.widget.Button;
 
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.moringaschool.cryptonet.Activity_create_account;
+import com.moringaschool.cryptonet.Activity_login;
+import com.moringaschool.cryptonet.Constant;
 import com.moringaschool.cryptonet.R;
+
+import java.util.HashMap;
+import java.util.Map;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -17,8 +23,8 @@ import butterknife.ButterKnife;
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
     @BindView(R.id.login) Button login;
-    FirebaseDatabase database = FirebaseDatabase.getInstance();
-    DatabaseReference ref = database.getReference(); //we now have permissions to read and write to Firebas
+//    FirebaseDatabase database = FirebaseDatabase.getInstance();
+//    DatabaseReference ref = database.getReference(); //we now have permissions to read and write to Firebas
 
 
     /**
@@ -30,19 +36,21 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
         login.setOnClickListener(this);
 
-        FirebaseDatabase.getInstance();
+
     }
 
     @Override
     public void onClick(View v) {
         if(v == login){
-            Intent i = new Intent(MainActivity.this, DetailActivity.class);
+            Intent i = new Intent(MainActivity.this, Activity_login.class);
             startActivity(i);
         }
     }
+
 }

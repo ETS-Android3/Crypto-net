@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.moringaschool.cryptonet">
-    <uses-permission android:name="android.permission.INTERNET"/>
+
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -10,12 +12,23 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Cryptonet">
         <activity
-            android:name=".ui.ShowdetailActivity"
-            android:theme="@style/Theme.showdetailActivity"
-            android:exported="false">
+            android:name=".Activity_login"
+            android:exported="false" />
+        <activity
+            android:name=".Activity_create_account"
+            android:exported="false"
+            android:theme="@style/Theme.account_create">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.moringaschool.cryptonet.ui.DetailActivity"></meta-data>
+                android:value="com.moringaschool.cryptonet.Activity_login" />
+        </activity>
+        <activity
+            android:name=".ui.ShowdetailActivity"
+            android:exported="false"
+            android:theme="@style/Theme.showdetailActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.moringaschool.cryptonet.ui.DetailActivity" />
         </activity>
         <activity
             android:name=".ui.DetailActivity"
@@ -23,7 +36,7 @@
             android:theme="@style/Theme.detailActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.moringaschool.cryptonet.ui.MainActivity"></meta-data>
+                android:value="com.moringaschool.cryptonet.ui.MainActivity" />
         </activity>
         <activity
             android:name=".ui.MainActivity"
