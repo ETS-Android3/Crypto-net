@@ -50,6 +50,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         if(v == login){
             Intent i = new Intent(MainActivity.this, Activity_login.class);
             startActivity(i);
+            finish();
         }
     }
 
