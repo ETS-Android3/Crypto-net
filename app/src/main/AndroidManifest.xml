@@ -12,16 +12,13 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Cryptonet">
         <activity
+            android:theme="@style/Theme.login"
             android:name=".Activity_login"
             android:exported="false" />
         <activity
             android:name=".Activity_create_account"
             android:exported="false"
-            android:theme="@style/Theme.account_create">
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.moringaschool.cryptonet.Activity_login" />
-        </activity>
+            android:theme="@style/Theme.account_create"/>
         <activity
             android:name=".ui.ShowdetailActivity"
             android:exported="false"

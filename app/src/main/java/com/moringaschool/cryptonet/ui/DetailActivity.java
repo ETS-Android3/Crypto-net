@@ -4,6 +4,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -30,6 +31,9 @@ public class DetailActivity extends AppCompatActivity implements View.OnClickLis
     private DatabaseReference mGettingNumber;
     private ValueEventListener mGettingNumberEventListener;
 
+    private SharedPreferences mSharedPreferences;
+    private SharedPreferences.Editor mEditor;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         mGettingNumber = FirebaseDatabase
@@ -55,19 +59,23 @@ public class DetailActivity extends AppCompatActivity implements View.OnClickLis
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detail);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setTitle("Calculator");
         ButterKnife.bind(this);
         convertButton.setOnClickListener(this);
 
-
-
     }
+
+//    public void calculation(){
+//        int coinInputted = Integer.parseInt(numberOfCrypto.getText().toString());
+//
+//
+//
+//    }
 
     @Override
     public void onClick(View view) {
         if(convertButton == view){
-            //EDIT-TEXT
             String editValue = numberOfCrypto.getText().toString();
-            //Sending to another Activity
             Intent i = new Intent(DetailActivity.this, ShowdetailActivity.class);
             i.putExtra("editValue", editValue);
             startActivity(i);

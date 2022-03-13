@@ -12,6 +12,9 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.moringaschool.cryptonet.ui.DetailActivity;
@@ -65,16 +68,23 @@ public class Activity_create_account extends AppCompatActivity implements View.O
         String password = mPasswordEditText.getText().toString().trim();
         String confirmPassword = mConfirmPasswordEditText.getText().toString().trim();
 
-        mAuth.createUserWithEmailAndPassword(email,password)
-                .addOnCompleteListener(this, task -> {
-                    if (task.isSuccessful()) {
-//                        Log.d(TAG, "Authentication successful");
-                        Toast.makeText(Activity_create_account.this,"log in successfully", Toast.LENGTH_SHORT).show();
-                    } else {
-                        Toast.makeText(Activity_create_account.this, "Authentication failed.",
-                                Toast.LENGTH_SHORT).show();
-                    }
-                });
+        boolean validEmail = isValidEmail(email);
+        boolean validName = isValidName(name);
+        boolean validPassword = isValidPassword(password, confirmPassword);
+
+        if(!validEmail || !validName || !validPassword) return;
+
+            mAuth.createUserWithEmailAndPassword(email,password).addOnCompleteListener(this, task -> {
+                if (task.isSuccessful()) {
+                    Log.d(TAG, "Authentication successful");
+                    Toast.makeText(Activity_create_account.this,"log in successfully", Toast.LENGTH_SHORT).show();
+                } else {
+                    Log.e(TAG, "createNewUser:", task.getException() );
+                    Toast.makeText(Activity_create_account.this, "Authentication failed.",
+                            Toast.LENGTH_SHORT).show();
+                }
+            });
+
 
     }
 
@@ -94,18 +104,49 @@ public class Activity_create_account extends AppCompatActivity implements View.O
 
 
     }
-
-    @Override
-    public void onStart() {
-        super.onStart();
-        mAuth.addAuthStateListener(mAuthStateListener);
-    }
-
-    @Override
-    public void onStop() {
-        super.onStop();
-        if (mAuthStateListener != null) {
-            mAuth.removeAuthStateListener(mAuthStateListener);
+    /** Errors within authentication
+     * ---Checking if email meets criteria
+     * ---Checking if name meets criteria
+     * ----Checking if Password meets criteria */
+    private boolean isValidEmail(String email) {
+        boolean isGoodEmail = (email != null && android.util.Patterns.EMAIL_ADDRESS.matcher(email).matches());
+        if (!isGoodEmail) {
+            mEmailEditText.setError("Please enter a valid email address");
+            return false;
         }
+        return true;
     }
-}
+
+    private boolean isValidName(String name) {
+        if (name.equals("")) {
+            mNameEditText.setError("Please enter your name");
+            return false;
+        }
+        return true;
+    }
+
+    private boolean isValidPassword(String password, String confirmPassword) {
+        if (password.length() < 6) {
+            mPasswordEditText.setError("Please create a password containing at least 6 characters");
+            return false;
+        } else if (!password.equals(confirmPassword)) {
+            mPasswordEditText.setError("Passwords do not match");
+            return false;
+        }
+        return true;
+    }
+
+//    @Override
+//    public void onStart() {
+//        super.onStart();
+//        mAuth.addAuthStateListener(mAuthStateListener);
+//    }
+//
+//    @Override
+//    public void onStop() {
+//        super.onStop();
+//        if (mAuthStateListener != null) {
+//            mAuth.removeAuthStateListener(mAuthStateListener);
+//        }
+    }
+
