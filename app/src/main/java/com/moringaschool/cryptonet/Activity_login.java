@@ -1,5 +1,6 @@
 package com.moringaschool.cryptonet;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -7,9 +8,15 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.ProgressBar;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.FirebaseDatabase;
 import com.moringaschool.cryptonet.ui.DetailActivity;
 
@@ -25,22 +32,47 @@ public class Activity_login extends AppCompatActivity implements View.OnClickLis
     @BindView(R.id.emailEditText) EditText emailAddress;
     @BindView(R.id.passwordEditText) TextView userPassword;
 
-    private FirebaseAuth firebaseAuth;
+    @BindView(R.id.mErrorText) TextView mErrorText;
+
+    @BindView(R.id.firebaseProgressBar)
+    ProgressBar firebaseProgressBar;
+    @BindView(R.id.loadingTextView) TextView loadingTextView;
+
+    private FirebaseAuth mAuth;
+    private FirebaseAuth.AuthStateListener mAuthListener;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
         ButterKnife.bind(this);
-        firebaseAuth = FirebaseAuth.getInstance();
+
+
+
+        mAuthListener = new FirebaseAuth.AuthStateListener() {
+//            FirebaseUser user = mAuth.getCurrentUser();// check user in FirebaseBD
+            @Override
+            public void onAuthStateChanged(FirebaseAuth firebaseAuth) {
+                if(firebaseAuth.getCurrentUser() != null){
+                    Intent intent = new Intent(Activity_login.this, DetailActivity.class);
+                    intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                    startActivity(intent);
+                    finish();
+                }
+            }
+        };
+
+        mAuth = FirebaseAuth.getInstance();
         takeMeToSignUp.setOnClickListener(this);
         loginUserButton.setOnClickListener(this);
     }
+
     @Override
     public void onClick(View view)  {
         if (view == loginUserButton){
-            Intent login = new Intent(Activity_login.this, DetailActivity.class);
-            startActivity(login);
-            finish(); // to destroy when moving
+            loginWithPassword();
+            showProgressBar();
+
         }
         if(view == takeMeToSignUp){
             Log.d(TAG, "onClick: success for return back to sign up");
@@ -51,5 +83,65 @@ public class Activity_login extends AppCompatActivity implements View.OnClickLis
 
     }
 
+
+
+    private void loginWithPassword() {
+        String email = emailAddress.getText().toString().trim();
+        String pass = userPassword.getText().toString().trim();
+
+        if(email.equals("")){
+            emailAddress.setError("Enter your Email!");
+            return;
+        }
+        if(pass.equals("")){
+            userPassword.setError("Enter your Password! ");
+            return;
+        }
+        mAuth.signInWithEmailAndPassword(email, pass)
+                .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+                    @Override
+                    public void onComplete(Task<AuthResult> task) {
+                        Log.d(TAG, "onComplete: log in" + task.isSuccessful());
+                        hideProgressBar();
+                        if (!task.isSuccessful()) {
+                            Log.w(TAG, "signInWithEmail", task.getException());
+                            showErrorMessage();
+                        }
+                    }
+                });
+    }
+
+    private void showErrorMessage(){
+        mErrorText.setText("Oops! we could not find a matching credentials");
+        mErrorText.setVisibility(View.VISIBLE);
+    }
+    private void hideErrorMessage(){
+        mErrorText.setVisibility(View.GONE);
+    }
+
+    @Override
+    public void onStart() {
+        super.onStart();
+        mAuth.addAuthStateListener(mAuthListener);
+    }
+
+    @Override
+    public void onStop() {
+        super.onStop();
+        if (mAuthListener != null) {
+            mAuth.removeAuthStateListener(mAuthListener);
+        }
+    }
+
+    private void showProgressBar() {
+        firebaseProgressBar.setVisibility(View.VISIBLE);
+        loadingTextView.setVisibility(View.VISIBLE);
+        loadingTextView.setText("Logging you in");
+    }
+
+    private void hideProgressBar() {
+        firebaseProgressBar.setVisibility(View.GONE);
+        loadingTextView.setVisibility(View.GONE);
+    }
 
 }
