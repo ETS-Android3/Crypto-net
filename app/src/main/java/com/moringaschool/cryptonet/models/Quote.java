@@ -6,9 +6,9 @@ import com.google.gson.annotations.SerializedName;
 
 public class Quote {
 
-    @SerializedName("KES")
+    @SerializedName("USD")
     @Expose
-    private Kes kes;
+    private Usd usd;
 
     /**
      * No args constructor for use in serialization
@@ -19,19 +19,19 @@ public class Quote {
 
     /**
      * 
-     * @param kes
+     * @param usd
      */
-    public Quote(Kes kes) {
+    public Quote(Usd usd) {
         super();
-        this.kes = kes;
+        this.usd = usd;
     }
 
-    public Kes getKes() {
-        return kes;
+    public Usd getUsd() {
+        return usd;
     }
 
-    public void setKes(Kes kes) {
-        this.kes = kes;
+    public void setUsd(Usd usd) {
+        this.usd = usd;
     }
 
 }

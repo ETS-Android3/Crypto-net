@@ -4,8 +4,6 @@ package com.moringaschool.cryptonet.models;
 import java.util.List;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
-import com.moringaschool.cryptonet.models.Datum;
-import com.moringaschool.cryptonet.models.Status;
 
 public class CoinmarketcapListingsLatestResponse {
 

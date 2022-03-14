@@ -4,44 +4,44 @@ package com.moringaschool.cryptonet.models;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-public class Kes {
+public class Usd extends Quote{
 
     @SerializedName("price")
     @Expose
-    private Double price;
+    private double price;
     @SerializedName("volume_24h")
     @Expose
-    private Double volume24h;
+    private double volume24h;
     @SerializedName("volume_change_24h")
     @Expose
-    private Double volumeChange24h;
+    private double volumeChange24h;
     @SerializedName("percent_change_1h")
     @Expose
-    private Double percentChange1h;
+    private double percentChange1h;
     @SerializedName("percent_change_24h")
     @Expose
-    private Double percentChange24h;
+    private double percentChange24h;
     @SerializedName("percent_change_7d")
     @Expose
-    private Double percentChange7d;
+    private double percentChange7d;
     @SerializedName("percent_change_30d")
     @Expose
-    private Double percentChange30d;
+    private double percentChange30d;
     @SerializedName("percent_change_60d")
     @Expose
-    private Double percentChange60d;
+    private double percentChange60d;
     @SerializedName("percent_change_90d")
     @Expose
-    private Double percentChange90d;
+    private double percentChange90d;
     @SerializedName("market_cap")
     @Expose
-    private Double marketCap;
+    private double marketCap;
     @SerializedName("market_cap_dominance")
     @Expose
-    private Double marketCapDominance;
+    private double marketCapDominance;
     @SerializedName("fully_diluted_market_cap")
     @Expose
-    private Double fullyDilutedMarketCap;
+    private double fullyDilutedMarketCap;
     @SerializedName("last_updated")
     @Expose
     private String lastUpdated;
@@ -50,7 +50,7 @@ public class Kes {
      * No args constructor for use in serialization
      * 
      */
-    public Kes() {
+    public Usd() {
     }
 
     /**
@@ -69,7 +69,7 @@ public class Kes {
      * @param percentChange90d
      * @param percentChange1h
      */
-    public Kes(Double price, Double volume24h, Double volumeChange24h, Double percentChange1h, Double percentChange24h, Double percentChange7d, Double percentChange30d, Double percentChange60d, Double percentChange90d, Double marketCap, Double marketCapDominance, Double fullyDilutedMarketCap, String lastUpdated) {
+    public Usd(double price, double volume24h, double volumeChange24h, double percentChange1h, double percentChange24h, double percentChange7d, double percentChange30d, double percentChange60d, double percentChange90d, double marketCap, double marketCapDominance, double fullyDilutedMarketCap, String lastUpdated) {
         super();
         this.price = price;
         this.volume24h = volume24h;
@@ -86,99 +86,99 @@ public class Kes {
         this.lastUpdated = lastUpdated;
     }
 
-    public Double getPrice() {
+    public double getPrice() {
         return price;
     }
 
-    public void setPrice(Double price) {
+    public void setPrice(double price) {
         this.price = price;
     }
 
-    public Double getVolume24h() {
+    public double getVolume24h() {
         return volume24h;
     }
 
-    public void setVolume24h(Double volume24h) {
+    public void setVolume24h(double volume24h) {
         this.volume24h = volume24h;
     }
 
-    public Double getVolumeChange24h() {
+    public double getVolumeChange24h() {
         return volumeChange24h;
     }
 
-    public void setVolumeChange24h(Double volumeChange24h) {
+    public void setVolumeChange24h(double volumeChange24h) {
         this.volumeChange24h = volumeChange24h;
     }
 
-    public Double getPercentChange1h() {
+    public double getPercentChange1h() {
         return percentChange1h;
     }
 
-    public void setPercentChange1h(Double percentChange1h) {
+    public void setPercentChange1h(double percentChange1h) {
         this.percentChange1h = percentChange1h;
     }
 
-    public Double getPercentChange24h() {
+    public double getPercentChange24h() {
         return percentChange24h;
     }
 
-    public void setPercentChange24h(Double percentChange24h) {
+    public void setPercentChange24h(double percentChange24h) {
         this.percentChange24h = percentChange24h;
     }
 
-    public Double getPercentChange7d() {
+    public double getPercentChange7d() {
         return percentChange7d;
     }
 
-    public void setPercentChange7d(Double percentChange7d) {
+    public void setPercentChange7d(double percentChange7d) {
         this.percentChange7d = percentChange7d;
     }
 
-    public Double getPercentChange30d() {
+    public double getPercentChange30d() {
         return percentChange30d;
     }
 
-    public void setPercentChange30d(Double percentChange30d) {
+    public void setPercentChange30d(double percentChange30d) {
         this.percentChange30d = percentChange30d;
     }
 
-    public Double getPercentChange60d() {
+    public double getPercentChange60d() {
         return percentChange60d;
     }
 
-    public void setPercentChange60d(Double percentChange60d) {
+    public void setPercentChange60d(double percentChange60d) {
         this.percentChange60d = percentChange60d;
     }
 
-    public Double getPercentChange90d() {
+    public double getPercentChange90d() {
         return percentChange90d;
     }
 
-    public void setPercentChange90d(Double percentChange90d) {
+    public void setPercentChange90d(double percentChange90d) {
         this.percentChange90d = percentChange90d;
     }
 
-    public Double getMarketCap() {
+    public double getMarketCap() {
         return marketCap;
     }
 
-    public void setMarketCap(Double marketCap) {
+    public void setMarketCap(double marketCap) {
         this.marketCap = marketCap;
     }
 
-    public Double getMarketCapDominance() {
+    public double getMarketCapDominance() {
         return marketCapDominance;
     }
 
-    public void setMarketCapDominance(Double marketCapDominance) {
+    public void setMarketCapDominance(double marketCapDominance) {
         this.marketCapDominance = marketCapDominance;
     }
 
-    public Double getFullyDilutedMarketCap() {
+    public double getFullyDilutedMarketCap() {
         return fullyDilutedMarketCap;
     }
 
-    public void setFullyDilutedMarketCap(Double fullyDilutedMarketCap) {
+    public void setFullyDilutedMarketCap(double fullyDilutedMarketCap) {
         this.fullyDilutedMarketCap = fullyDilutedMarketCap;
     }
 
