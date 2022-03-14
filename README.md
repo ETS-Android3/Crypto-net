@@ -20,8 +20,8 @@ Crypto net is an informational application and is used to convert global cryptoc
 
 ## Technologies Used
 ![forthebadge](https://img.shields.io/badge/Tool-made%20in%20java-brightgreen)
-![forthebadge](https://img.shields.io/badge/Ui-Android)
-![forthebadge](https://img.shields.io/badge/REST-Firebase)
+![forthebadge](https://img.shields.io/badge/Tool-made%20in%20Android-grey)
+![forthebadge](https://img.shields.io/badge/Tool-made%20in%20Firebase-darkOrange)
 
 ## Installation
 * `git clone <https://github.com/moemaair/Crypto-net.git>` this repository
