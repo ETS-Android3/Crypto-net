@@ -8,4 +8,9 @@
         android:icon="@drawable/baseline_logout_24"
         android:visible="true"
         android:title="logout"/>
+    <item
+        android:id="@+id/action_save"
+        android:icon="@drawable/baseline_logout_24"
+        android:visible="true"
+        android:title="save"/>
 </menu>
