@@ -23,7 +23,10 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 import com.moringaschool.cryptonet.Activity_login;
+import com.moringaschool.cryptonet.Constant;
 import com.moringaschool.cryptonet.R;
 import com.moringaschool.cryptonet.adapter.CoinMarketListAdapter;
 import com.moringaschool.cryptonet.models.CoinmarketcapListingsLatestResponse;
@@ -51,9 +54,16 @@ public class ShowdetailActivity extends AppCompatActivity  {
     @BindView(R.id.progressBar) ProgressBar mProgressBar;
     @BindView(R.id.mSearchView) SearchView mSearchView;
 
+     TextView marketPercentage;
+
 
     private CoinMarketListAdapter mAdapter;
     public List<Datum> data;
+
+    public ShowdetailActivity(){
+        // Required empty public constructor
+    }
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -90,7 +100,6 @@ public class ShowdetailActivity extends AppCompatActivity  {
                 Log.d(TAG, "onResponse: success Response" + response);
                 hideProgressBar();
                 if(response.isSuccessful()){
-                    data = new ArrayList<>();
                     data = response.body().getData();
                     mAdapter = new CoinMarketListAdapter(data ,ShowdetailActivity.this);
                     RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(ShowdetailActivity.this);
@@ -146,11 +155,23 @@ public class ShowdetailActivity extends AppCompatActivity  {
         return super.onCreateOptionsMenu(menu);
     }
 
+    private void percentageAbovePositive(){
+        marketPercentage = findViewById(R.id.marketPercentage);
+        String positiveInt = (marketPercentage.getText().toString());
+        Toast.makeText(this, "values" + positiveInt, Toast.LENGTH_SHORT).show();
+    }
+
+
+
     @Override
     public boolean onOptionsItemSelected( MenuItem item) {
         int id = item.getItemId();
         if(id == R.id.action_logout){
             logOut();
+            return true;
+        }
+        else if (id == R.id.action_save){
+            save();
             return true;
         }
         return super.onOptionsItemSelected(item);
@@ -163,4 +184,12 @@ public class ShowdetailActivity extends AppCompatActivity  {
         startActivity(intent); //running
         finish(); // just formalities to end the current instance of MainActivity with the finish() method.
     }
-}
+
+    private void save(){
+        DatabaseReference dataRef = FirebaseDatabase
+                .getInstance()
+                .getReference(Constant.FIREBASE_CHILDREN_DATA);
+        dataRef.push().setValue(data);
+        Toast.makeText(ShowdetailActivity.this, "Saved", Toast.LENGTH_SHORT).show();
+    }
+    }
