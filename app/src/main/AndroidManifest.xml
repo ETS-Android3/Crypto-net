@@ -12,13 +12,13 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Cryptonet">
         <activity
-            android:theme="@style/Theme.login"
             android:name=".Activity_login"
-            android:exported="false" />
+            android:exported="true"
+            android:theme="@style/Theme.login" />
         <activity
             android:name=".Activity_create_account"
-            android:exported="false"
-            android:theme="@style/Theme.account_create"/>
+            android:exported="true"
+            android:theme="@style/Theme.account_create" />
         <activity
             android:name=".ui.ShowdetailActivity"
             android:exported="false"
@@ -38,9 +38,9 @@
         <activity
             android:name=".ui.MainActivity"
             android:exported="true">
+
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
@@ -48,6 +48,7 @@
         <meta-data
             android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts" />
+
     </application>
 
 </manifest>

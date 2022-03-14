@@ -47,7 +47,9 @@ public class CoinMarketListAdapter extends RecyclerView.Adapter<CoinMarketListAd
         holder.coinLongName.setText(datum.getName());
         holder.coinShortName.setText(datum.getSymbol());
         holder.valueInKes.setText("$" + df2.format(datum.getQuote().getUsd().getPrice()));
+        holder.marketPercentage.setText(df2.format(datum.getQuote().getUsd().getPercentChange1h())+"%");
     }
+//     System.out.println("double : " + df.format(piValue));
 
     @Override
     public int getItemCount() {
@@ -60,7 +62,7 @@ public class CoinMarketListAdapter extends RecyclerView.Adapter<CoinMarketListAd
 //        @BindView(R.id.coinShortName) TextView coinShortName;
 ////        @BindView(R.id.valueInKes) TextView valueInKes;
 //        @BindView(R.id.coinLongName) TextView coinLongName;
-        private TextView coinShortName,coinLongName,valueInKes,numbering;
+        private TextView coinShortName,coinLongName,valueInKes,numbering,marketPercentage;
         private Context mContext;
 
 
@@ -71,6 +73,7 @@ public class CoinMarketListAdapter extends RecyclerView.Adapter<CoinMarketListAd
             coinLongName = itemView.findViewById(R.id.coinLongName);
             valueInKes = itemView.findViewById(R.id.valueInKes);
             numbering = itemView.findViewById(R.id.numbering);
+            marketPercentage = itemView.findViewById(R.id.marketPercentage);
 
 //            ButterKnife.bind(this, itemView);
             mContext = itemView.getContext();

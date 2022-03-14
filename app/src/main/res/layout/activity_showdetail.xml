@@ -3,22 +3,25 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:background="@color/black"
     android:layout_height="match_parent"
-    app:circularflow_defaultRadius="20dp"
+    android:background="@color/black"
+    app:circularflow_defaultRadius="22dp"
     tools:context=".ui.ShowdetailActivity">
+
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/cardView"
         android:layout_width="365dp"
         android:layout_height="160dp"
         android:layout_marginStart="10dp"
-        android:layout_marginTop="65dp"
+        android:layout_marginTop="88dp"
         android:layout_marginEnd="10dp"
+        android:layout_marginBottom="28dp"
         android:background="@drawable/rectangle"
         app:circularflow_radiusInDP="20dp"
+        app:layout_constraintBottom_toTopOf="@+id/textView2"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.513"
+        app:layout_constraintHorizontal_bias="0.25"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
@@ -44,7 +47,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@android:color/transparent"
-                android:text="Converted"
+                android:text="Kenyan"
                 android:textColor="#918787" />
 
             <TextView
@@ -82,8 +85,8 @@
             android:background="@android:color/transparent"
             android:letterSpacing=".03"
             android:text="Converted Result"
-            android:textSize="15sp"
             android:textColor="@color/black"
+            android:textSize="15sp"
             android:textStyle="bold"
             app:layout_constraintBottom_toTopOf="@+id/linearLayout"
             app:layout_constraintEnd_toStartOf="@+id/imageView3"
@@ -92,25 +95,22 @@
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
-
-
     <SearchView
         android:id="@+id/mSearchView"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="40dp"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="52dp"
+        android:layout_marginTop="16dp"
         android:layout_marginEnd="16dp"
-        android:layout_marginBottom="22dp"
+        android:layout_marginBottom="24dp"
         android:background="@drawable/searchview_button"
+        android:elevation="30dp"
         android:iconifiedByDefault="false"
         android:queryHint="Search"
-        android:outlineAmbientShadowColor="@color/white"
-        app:layout_constraintBottom_toTopOf="@+id/mRecyclerView"
+        app:layout_constraintBottom_toTopOf="@+id/cardView"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/cardView" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/mRecyclerView"
@@ -170,33 +170,53 @@
 
     <TextView
         android:id="@+id/textView2"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="35dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="274dp"
-        android:text="Hi, Mohamed"
-        android:textColor="@color/white"
-        android:textSize="16sp"
-        app:layout_constraintBottom_toTopOf="@+id/textView4"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:layout_marginStart="25dp"
+        android:layout_marginTop="276dp"
+        android:layout_marginEnd="25dp"
+        android:layout_marginBottom="33dp"
 
-    <TextView
-        android:id="@+id/textView4"
-        android:layout_width="wrap_content"
-        android:layout_height="11dp"
-        android:layout_marginStart="35dp"
-        android:layout_marginEnd="304dp"
-        android:layout_marginBottom="10dp"
-        android:text="March 12, 2022"
-        android:textColor="@color/grey"
-        android:textSize="10sp"
-        app:layout_constraintBottom_toTopOf="@+id/cardView"
+        android:drawableEnd="@drawable/ic_baseline_chevron_right_24"
+        android:text="Markets"
+        android:textColor="@color/white"
+        android:textSize="17sp"
+        app:layout_constraintBottom_toTopOf="@+id/mRecyclerView"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView2" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
+
+
+    <!--    <TextView-->
+    <!--        android:id="@+id/textView2"-->
+    <!--        android:layout_width="wrap_content"-->
+    <!--        android:layout_height="wrap_content"-->
+    <!--        android:layout_marginStart="35dp"-->
+    <!--        android:layout_marginTop="16dp"-->
+    <!--        android:layout_marginEnd="274dp"-->
+    <!--        android:text="Hi, Mohamed"-->
+    <!--        android:textColor="@color/white"-->
+    <!--        android:textSize="16sp"-->
+    <!--        app:layout_constraintBottom_toTopOf="@+id/textView4"-->
+    <!--        app:layout_constraintEnd_toEndOf="parent"-->
+    <!--        app:layout_constraintStart_toStartOf="parent"-->
+    <!--        app:layout_constraintTop_toTopOf="parent" />-->
+
+    <!--    <TextView-->
+    <!--        android:id="@+id/textView4"-->
+    <!--        android:layout_width="wrap_content"-->
+    <!--        android:layout_height="11dp"-->
+    <!--        android:layout_marginStart="35dp"-->
+    <!--        android:layout_marginEnd="304dp"-->
+    <!--        android:layout_marginBottom="10dp"-->
+    <!--        android:text="March 12, 2022"-->
+    <!--        android:textColor="@color/grey"-->
+    <!--        android:textSize="10sp"-->
+    <!--        app:layout_constraintBottom_toTopOf="@+id/cardView"-->
+    <!--        app:layout_constraintEnd_toEndOf="parent"-->
+    <!--        app:layout_constraintStart_toStartOf="parent"-->
+    <!--        app:layout_constraintTop_toBottomOf="@+id/textView2" />-->
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
