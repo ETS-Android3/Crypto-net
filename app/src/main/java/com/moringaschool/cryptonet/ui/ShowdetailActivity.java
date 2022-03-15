@@ -10,6 +10,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.ContentQueryMap;
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
@@ -23,10 +24,12 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.moringaschool.cryptonet.Activity_login;
 import com.moringaschool.cryptonet.Constant;
+import com.moringaschool.cryptonet.FilterCrypto;
 import com.moringaschool.cryptonet.R;
 import com.moringaschool.cryptonet.adapter.CoinMarketListAdapter;
 import com.moringaschool.cryptonet.models.CoinmarketcapListingsLatestResponse;
@@ -45,7 +48,7 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class ShowdetailActivity extends AppCompatActivity  {
+public class ShowdetailActivity extends AppCompatActivity implements View.OnClickListener {
     public static final String TAG = ShowdetailActivity.class.getSimpleName();
     @BindView(R.id.cashConverted) TextView cashConverted;
     @BindView(R.id.coinSelected) TextView coinSelected;
@@ -54,7 +57,7 @@ public class ShowdetailActivity extends AppCompatActivity  {
     @BindView(R.id.progressBar) ProgressBar mProgressBar;
     @BindView(R.id.mSearchView) SearchView mSearchView;
 
-     TextView marketPercentage;
+    @BindView(R.id.rightArrow) TextView mRightArrow;
 
 
     private CoinMarketListAdapter mAdapter;
@@ -63,29 +66,15 @@ public class ShowdetailActivity extends AppCompatActivity  {
     public ShowdetailActivity(){
         // Required empty public constructor
     }
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_showdetail);
         ButterKnife.bind(this);
+        mRightArrow.setOnClickListener(this);
 
-        mSearchView = findViewById(R.id.mSearchView);
-
-        mSearchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
-            @Override
-            public boolean onQueryTextSubmit(String s) {
-
-                return false;
-            }
-
-            @Override
-            public boolean onQueryTextChange(String s) {
-                return false;
-            }
-        });
-
+        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+        String uid = user.getUid();
 
         Intent i = getIntent();
         String vb = i.getStringExtra("editValue");
@@ -99,9 +88,15 @@ public class ShowdetailActivity extends AppCompatActivity  {
             public void onResponse(Call<CoinmarketcapListingsLatestResponse> call, Response<CoinmarketcapListingsLatestResponse> response) {
                 Log.d(TAG, "onResponse: success Response" + response);
                 hideProgressBar();
+
                 if(response.isSuccessful()){
                     data = response.body().getData();
-                    mAdapter = new CoinMarketListAdapter(data ,ShowdetailActivity.this);
+                    mAdapter = new CoinMarketListAdapter(data, ShowdetailActivity.this, new CoinMarketListAdapter.ItemClickListener() {
+                        @Override
+                        public void onItemClickListener(Datum myData) {
+                            showToast(myData.getName());
+                        }
+                    });
                     RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(ShowdetailActivity.this);
                     mRecyclerView.setLayoutManager(layoutManager);
                     mRecyclerView.setAdapter(mAdapter);
@@ -118,8 +113,9 @@ public class ShowdetailActivity extends AppCompatActivity  {
 
                 }
 
-
-
+                private void showToast(String message){
+                    Toast.makeText(ShowdetailActivity.this, "clicked: " + message, Toast.LENGTH_SHORT).show();
+                }
             @Override
             public void onFailure(Call<CoinmarketcapListingsLatestResponse> call, Throwable t) {
                 System.out.println(t);
@@ -155,11 +151,7 @@ public class ShowdetailActivity extends AppCompatActivity  {
         return super.onCreateOptionsMenu(menu);
     }
 
-    private void percentageAbovePositive(){
-        marketPercentage = findViewById(R.id.marketPercentage);
-        String positiveInt = (marketPercentage.getText().toString());
-        Toast.makeText(this, "values" + positiveInt, Toast.LENGTH_SHORT).show();
-    }
+
 
 
 
@@ -186,10 +178,28 @@ public class ShowdetailActivity extends AppCompatActivity  {
     }
 
     private void save(){
-        DatabaseReference dataRef = FirebaseDatabase
+        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+        String uid = user.getUid();
+                DatabaseReference dataRef = FirebaseDatabase
                 .getInstance()
-                .getReference(Constant.FIREBASE_CHILDREN_DATA);
-        dataRef.push().setValue(data);
+                .getReference(Constant.FIREBASE_CHILDREN_DATA)
+                        .child(uid);
+
+        DatabaseReference pushRef = dataRef.push();
+        String pushId = pushRef.getKey();
+        Datum mdata = new Datum();
+        mdata.setPushId(pushId);
+        pushRef.setValue(dataRef);
         Toast.makeText(ShowdetailActivity.this, "Saved", Toast.LENGTH_SHORT).show();
     }
+
+    @Override
+    public void onClick(View view) {
+        if(view == mRightArrow){
+            Intent intent = new Intent(ShowdetailActivity.this, FilterCrypto.class);
+            startActivity(intent);
+        }
+
     }
+
+}

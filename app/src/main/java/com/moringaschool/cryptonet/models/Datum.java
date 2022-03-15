@@ -59,6 +59,10 @@ public class Datum {
     @Expose
     private Quote quote;
 
+    private String pushId;
+
+
+
     /**
      * No args constructor for use in serialization
      * 
@@ -240,6 +244,16 @@ public class Datum {
 
     public void setQuote(Quote quote) {
         this.quote = quote;
+    }
+
+
+ // UID for every user (USER ID)
+    public String getPushId() {
+        return pushId;
+    }
+
+    public void setPushId(String pushId) {
+        this.pushId = pushId;
     }
 
 }

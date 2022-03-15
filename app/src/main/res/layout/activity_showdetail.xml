@@ -9,6 +9,8 @@
     tools:context=".ui.ShowdetailActivity">
 
 
+
+
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/cardView"
         android:layout_width="365dp"
@@ -169,23 +171,22 @@
         app:layout_constraintTop_toBottomOf="@+id/cardView" />
 
     <TextView
-        android:id="@+id/textView2"
+        android:id="@+id/rightArrow"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="25dp"
-        android:layout_marginTop="276dp"
+        android:layout_marginTop="30dp"
         android:layout_marginEnd="25dp"
-        android:layout_marginBottom="33dp"
-
+        android:layout_marginBottom="28dp"
         android:drawableEnd="@drawable/ic_baseline_chevron_right_24"
         android:text="Markets"
         android:textColor="@color/white"
         android:textSize="17sp"
         app:layout_constraintBottom_toTopOf="@+id/mRecyclerView"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintTop_toBottomOf="@+id/cardView" />
 
 
     <!--    <TextView-->

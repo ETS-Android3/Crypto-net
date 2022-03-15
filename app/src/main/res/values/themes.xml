@@ -25,6 +25,8 @@
     </style>
 
     <style name="Theme.showdetailActivity" parent="Theme.AppCompat.Light">
+        <item name="colorOnPrimary">@color/green</item>
+        <item name="colorError">@color/red</item>
         <item name="colorAccent">@color/grey</item>
         <item name="android:textColor">#0d0f1a</item>
         <item name="backgroundColor">#ffffff</item>

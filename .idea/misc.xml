@@ -3,7 +3,7 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="../../../../layout/custom_preview.xml" value="0.1" />
+        <entry key="../../../../layout/custom_preview.xml" value="0.18348693847656244" />
         <entry key="app/src/main/res/drawable/baseline_logout_24.xml" value="0.2415" />
         <entry key="app/src/main/res/drawable/border_radius_style.xml" value="0.2415" />
         <entry key="app/src/main/res/drawable/button_styles.xml" value="0.2215" />
@@ -15,14 +15,18 @@
         <entry key="app/src/main/res/drawable/logoutmenu.xml" value="0.2415" />
         <entry key="app/src/main/res/drawable/rectangle.xml" value="0.2175" />
         <entry key="app/src/main/res/drawable/searchview_button.xml" value="0.22093353271484378" />
+        <entry key="app/src/main/res/drawable/socials_info.xml" value="0.1555" />
         <entry key="app/src/main/res/layout-land/activity_main.xml" value="0.2623456790123457" />
         <entry key="app/src/main/res/layout/activity_create_account.xml" value="0.20361990950226244" />
         <entry key="app/src/main/res/layout/activity_detail.xml" value="0.23162393162393163" />
+        <entry key="app/src/main/res/layout/activity_filter_crypto.xml" value="0.21904564043541097" />
         <entry key="app/src/main/res/layout/activity_login.xml" value="0.2802841186523438" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.22043400254360465" />
-        <entry key="app/src/main/res/layout/activity_showdetail.xml" value="0.3672049365175617" />
+        <entry key="app/src/main/res/layout/activity_showdetail.xml" value="0.25427350427350426" />
         <entry key="app/src/main/res/layout/activity_splashscreen.xml" value="0.22093353271484376" />
-        <entry key="app/src/main/res/layout/crypto_list_design.xml" value="0.5290519877675841" />
+        <entry key="app/src/main/res/layout/crypto_list_design.xml" value="0.40930232558139534" />
+        <entry key="app/src/main/res/layout/filter_crypto_design.xml" value="0.25427350427350426" />
+        <entry key="app/src/main/res/layout/filter_list_design.xml" value="0.25427350427350426" />
         <entry key="app/src/main/res/layout/fragment_type_of_crypto_dialog.xml" value="0.1" />
         <entry key="app/src/main/res/menu/menu_main.xml" value="0.549180120484442" />
       </map>

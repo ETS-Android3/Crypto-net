@@ -20,16 +20,19 @@ import java.util.List;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-public class CoinMarketListAdapter extends RecyclerView.Adapter<CoinMarketListAdapter.CoinMarketViewHolder>  {
+public class CoinMarketListAdapter extends RecyclerView.Adapter<CoinMarketListAdapter.CoinMarketViewHolder> {
     /******************************MEMBER VARIABLES****************************************/
     private static DecimalFormat df2 = new DecimalFormat("#.##");
     private List<Datum> data;
     private List<Quote> quotes;
     private Context mContext;
 
-    public CoinMarketListAdapter(List<Datum> data,  Context mContext) {
+    private ItemClickListener mItemClickListener;
+
+    public CoinMarketListAdapter(List<Datum> data,  Context mContext, ItemClickListener itemClickListener) {
         this.data = data;
         this.mContext = mContext;
+        this.mItemClickListener = itemClickListener;
     }
 
     @Override
@@ -47,22 +50,40 @@ public class CoinMarketListAdapter extends RecyclerView.Adapter<CoinMarketListAd
         holder.coinLongName.setText(datum.getName());
         holder.coinShortName.setText(datum.getSymbol());
         holder.valueInKes.setText("$" + df2.format(datum.getQuote().getUsd().getPrice()));
-        holder.marketPercentage.setText(df2.format(datum.getQuote().getUsd().getPercentChange1h())+"%");
+        if(Double.parseDouble(df2.format(datum.getQuote().getUsd().getPercentChange1h())) > 0){
+             holder.marketPercentage.setText(df2.format(datum.getQuote().getUsd().getPercentChange1h())+"%"); // +
+        }
+        else if(Double.parseDouble(df2.format(datum.getQuote().getUsd().getPercentChange1h())) < 0){
+            holder.marketPercentage2.setText(df2.format(datum.getQuote().getUsd().getPercentChange1h())+"%"); //-
+
+        }
+        else{
+            return;
+        }
+
+
+        //ItemClickListener
+
+        holder.itemView.setOnClickListener(view -> {
+            mItemClickListener.onItemClickListener(datum); //this will get the position of our item in recycler view
+
+        });
     }
-//     System.out.println("double : " + df.format(piValue));
 
     @Override
     public int getItemCount() {
         return data.size();
     }
 
-
+    public interface ItemClickListener{
+        void onItemClickListener(Datum myData);
+    }
     /**************************INNER CLASS WHICH IS A VIEWHOLDER****************************************/
     public class CoinMarketViewHolder extends RecyclerView.ViewHolder{
 //        @BindView(R.id.coinShortName) TextView coinShortName;
 ////        @BindView(R.id.valueInKes) TextView valueInKes;
 //        @BindView(R.id.coinLongName) TextView coinLongName;
-        private TextView coinShortName,coinLongName,valueInKes,numbering,marketPercentage;
+        private TextView coinShortName,coinLongName,valueInKes,numbering,marketPercentage,marketPercentage2;
         private Context mContext;
 
 
@@ -74,6 +95,7 @@ public class CoinMarketListAdapter extends RecyclerView.Adapter<CoinMarketListAd
             valueInKes = itemView.findViewById(R.id.valueInKes);
             numbering = itemView.findViewById(R.id.numbering);
             marketPercentage = itemView.findViewById(R.id.marketPercentage);
+            marketPercentage2 = itemView.findViewById(R.id.marketPercentage2);
 
 //            ButterKnife.bind(this, itemView);
             mContext = itemView.getContext();
