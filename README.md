@@ -2,12 +2,15 @@
 # Crypto Net
 
 #### By **Mohamed Ibrahim**
- //screenshoots
+
 ## Description
 
 ```bash
 Crypto net is an informational application and is used to convert global cryptocurrency into kenyan currency
 ```
+
+###Screenshoots
+![](screenshots/SplashScreen.jpg.png)
 
 ## TOC
 
