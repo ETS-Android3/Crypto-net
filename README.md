@@ -9,7 +9,7 @@
 Crypto net is an informational application and is used to convert global cryptocurrency into kenyan currency
 ```
 
-###Screenshoots
+### Screenshoots
 ![](screenshots/SplashScreen.jpg.png)
 
 ## TOC
