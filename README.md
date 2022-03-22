@@ -10,7 +10,7 @@ Crypto net is an informational application and is used to convert global cryptoc
 ```
 
 ### Screenshoots
-![](screenshots/SplashScreen.jpg.png)
+![](screenshoot/SplashScreen.jpg)
 
 ## TOC
 
