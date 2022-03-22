@@ -1,33 +1,25 @@
 package com.moringaschool.cryptonet.ui;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.Menu;
-import android.view.MenuInflater;
-import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 
-import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
-import com.moringaschool.cryptonet.Activity_create_account;
-import com.moringaschool.cryptonet.Activity_login;
-import com.moringaschool.cryptonet.Constant;
+import com.daimajia.androidanimations.library.Techniques;
+import com.daimajia.androidanimations.library.YoYo;
 import com.moringaschool.cryptonet.R;
-
-import java.util.HashMap;
-import java.util.Map;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
-    @BindView(R.id.login) Button login;
+    @BindView(R.id.login) Button getStarted;
+    @BindView(R.id.AppnameTitle)
+    TextView title;
 //    FirebaseDatabase database = FirebaseDatabase.getInstance();
 //    DatabaseReference ref = database.getReference(); //we now have permissions to read and write to Firebas
 
@@ -44,15 +36,22 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
-        login.setOnClickListener(this);
+        getStarted.setOnClickListener(this);
 
+        YoYo.with(Techniques.FadeIn)
+                .duration(700)
+                .repeat(1)
+                .playOn(title);
 
-
+        YoYo.with(Techniques.FadeIn)
+                .duration(600)
+                .repeat(1)
+                .playOn(getStarted);
     }
 
     @Override
     public void onClick(View v) {
-        if(v == login){
+        if(v == getStarted){
             Intent i = new Intent(MainActivity.this, Activity_login.class);
             startActivity(i);
             finish();

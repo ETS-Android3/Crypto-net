@@ -39,14 +39,14 @@ public class DetailActivity extends AppCompatActivity implements View.OnClickLis
         mGettingNumber = FirebaseDatabase
                 .getInstance()
                 .getReference()
-                .child(Constant.FIREBASE_CHILD_GET_VARIABLE);
+                .child(Constant.FIREBASE_CHILD_GET_VARIABLE)
+                .child("coin");
 
         mGettingNumberEventListener = mGettingNumber.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 for (DataSnapshot numbersSnapshot : snapshot.getChildren()) {
                     String numbers = numbersSnapshot.getValue().toString();
-                    Log.d("Locations updated", "numbersSnapshot: " + numbers); //log
                 }
             }
 
@@ -65,12 +65,6 @@ public class DetailActivity extends AppCompatActivity implements View.OnClickLis
 
     }
 
-//    public void calculation(){
-//        int coinInputted = Integer.parseInt(numberOfCrypto.getText().toString());
-//
-//
-//
-//    }
 
     @Override
     public void onClick(View view) {

@@ -12,11 +12,20 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Cryptonet">
         <activity
-            android:name=".Activity_login"
+            android:name=".ui.SavedCrypto"
+            android:label="            Bookmarked"
+            android:theme="@style/Theme.savedCrypto"
+            android:exported="false">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.moringaschool.cryptonet.ui.ShowdetailActivity"/>
+        </activity>
+        <activity
+            android:name=".ui.Activity_login"
             android:exported="true"
             android:theme="@style/Theme.login" />
         <activity
-            android:name=".Activity_create_account"
+            android:name=".ui.Activity_create_account"
             android:exported="true"
             android:theme="@style/Theme.account_create" />
         <activity
@@ -38,9 +47,9 @@
         <activity
             android:name=".ui.MainActivity"
             android:exported="true">
-
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
@@ -48,7 +57,6 @@
         <meta-data
             android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts" />
-
     </application>
 
 </manifest>

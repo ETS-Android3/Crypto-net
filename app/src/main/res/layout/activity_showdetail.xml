@@ -14,12 +14,11 @@
         android:layout_width="365dp"
         android:layout_height="160dp"
         android:layout_marginStart="10dp"
-        android:layout_marginTop="88dp"
+        android:layout_marginTop="36dp"
         android:layout_marginEnd="10dp"
         android:layout_marginBottom="28dp"
         android:background="@drawable/rectangle"
         app:circularflow_radiusInDP="20dp"
-        app:layout_constraintBottom_toTopOf="@+id/textView2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.25"
         app:layout_constraintStart_toStartOf="parent"
@@ -95,31 +94,16 @@
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
-    <SearchView
-        android:id="@+id/mSearchView"
-        android:layout_width="match_parent"
-        android:layout_height="40dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginBottom="24dp"
-        android:background="@drawable/searchview_button"
-        android:elevation="30dp"
-        android:iconifiedByDefault="false"
-        android:queryHint="Search"
-        app:layout_constraintBottom_toTopOf="@+id/cardView"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/mRecyclerView"
-        android:layout_width="match_parent"
-        android:layout_height="392dp"
+        android:layout_width="391dp"
+        android:layout_height="400dp"
+        android:layout_marginTop="284dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/cardView" />
 
     <ProgressBar
         android:id="@+id/progressBar"
@@ -151,72 +135,24 @@
         app:layout_constraintVertical_bias="0.424" />
 
     <TextView
-        android:id="@+id/textView"
-        android:layout_width="wrap_content"
-        android:layout_height="0dp"
-        android:layout_marginStart="30dp"
-        android:layout_marginTop="12dp"
-        android:layout_marginEnd="288dp"
-        android:layout_marginBottom="8dp"
-        android:elevation="2dp"
-        android:fontFamily="@font/lato_bold"
-        android:text="Market"
-        android:textSize="20sp"
-        app:layout_constraintBottom_toTopOf="@+id/mSearchView"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.222"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/cardView" />
-
-    <TextView
-        android:id="@+id/textView2"
+        android:id="@+id/rightArrow"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="25dp"
-        android:layout_marginTop="276dp"
+        android:layout_marginTop="32dp"
         android:layout_marginEnd="25dp"
-        android:layout_marginBottom="33dp"
-
+        android:layout_marginBottom="32dp"
         android:drawableEnd="@drawable/ic_baseline_chevron_right_24"
         android:text="Markets"
         android:textColor="@color/white"
-        android:textSize="17sp"
+        android:textSize="18sp"
         app:layout_constraintBottom_toTopOf="@+id/mRecyclerView"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintTop_toBottomOf="@+id/cardView" />
 
 
-    <!--    <TextView-->
-    <!--        android:id="@+id/textView2"-->
-    <!--        android:layout_width="wrap_content"-->
-    <!--        android:layout_height="wrap_content"-->
-    <!--        android:layout_marginStart="35dp"-->
-    <!--        android:layout_marginTop="16dp"-->
-    <!--        android:layout_marginEnd="274dp"-->
-    <!--        android:text="Hi, Mohamed"-->
-    <!--        android:textColor="@color/white"-->
-    <!--        android:textSize="16sp"-->
-    <!--        app:layout_constraintBottom_toTopOf="@+id/textView4"-->
-    <!--        app:layout_constraintEnd_toEndOf="parent"-->
-    <!--        app:layout_constraintStart_toStartOf="parent"-->
-    <!--        app:layout_constraintTop_toTopOf="parent" />-->
-
-    <!--    <TextView-->
-    <!--        android:id="@+id/textView4"-->
-    <!--        android:layout_width="wrap_content"-->
-    <!--        android:layout_height="11dp"-->
-    <!--        android:layout_marginStart="35dp"-->
-    <!--        android:layout_marginEnd="304dp"-->
-    <!--        android:layout_marginBottom="10dp"-->
-    <!--        android:text="March 12, 2022"-->
-    <!--        android:textColor="@color/grey"-->
-    <!--        android:textSize="10sp"-->
-    <!--        app:layout_constraintBottom_toTopOf="@+id/cardView"-->
-    <!--        app:layout_constraintEnd_toEndOf="parent"-->
-    <!--        app:layout_constraintStart_toStartOf="parent"-->
-    <!--        app:layout_constraintTop_toBottomOf="@+id/textView2" />-->
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
