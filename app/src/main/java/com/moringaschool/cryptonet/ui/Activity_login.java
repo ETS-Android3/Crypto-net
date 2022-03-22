@@ -1,6 +1,5 @@
-package com.moringaschool.cryptonet;
+package com.moringaschool.cryptonet.ui;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -10,15 +9,14 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.ProgressBar;
 import android.widget.TextView;
-import android.widget.Toast;
 
+import com.daimajia.androidanimations.library.Techniques;
+import com.daimajia.androidanimations.library.YoYo;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
-import com.google.firebase.database.FirebaseDatabase;
-import com.moringaschool.cryptonet.ui.DetailActivity;
+import com.moringaschool.cryptonet.R;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -38,6 +36,8 @@ public class Activity_login extends AppCompatActivity implements View.OnClickLis
     ProgressBar firebaseProgressBar;
     @BindView(R.id.loadingTextView) TextView loadingTextView;
 
+    @BindView(R.id.title) TextView title;
+
     private FirebaseAuth mAuth;
     private FirebaseAuth.AuthStateListener mAuthListener;
 
@@ -46,6 +46,11 @@ public class Activity_login extends AppCompatActivity implements View.OnClickLis
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
         ButterKnife.bind(this);
+
+        YoYo.with(Techniques.FadeIn)
+                .duration(700)
+                .repeat(1)
+                .playOn(title);
 
 
 

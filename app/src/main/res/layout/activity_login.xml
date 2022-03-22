@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:background="@color/black"
-    tools:context=".Activity_login">
+    tools:context=".ui.Activity_login">
 
 
     <EditText
@@ -16,9 +16,10 @@
         android:layout_marginLeft="30dp"
         android:layout_marginTop="64dp"
         android:layout_marginRight="30dp"
+        android:drawableStart="@drawable/email_icon"
         android:layout_marginBottom="0dp"
         android:background="@android:color/white"
-        android:hint="Email"
+        android:hint="  Email"
         android:inputType="textEmailAddress"
         android:nextFocusDown="@+id/passwordEditText"
         android:padding="10dp"
@@ -40,7 +41,9 @@
         android:layout_marginLeft="30dp"
         android:layout_marginRight="30dp"
         android:background="@android:color/white"
-        android:hint="Password"
+        android:hint="  Password"
+
+        android:drawableStart="@drawable/pass_icon"
         android:inputType="textPassword"
         android:nextFocusDown="@+id/passwordEditText"
         android:padding="10dp"

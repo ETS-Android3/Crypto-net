@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.SavedCrypto">
+
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:height="40dp"
+        android:fontFamily="@font/lato_bold"
+        android:gravity="center"
+        android:text="Saved Data"
+        android:textSize="17sp"
+        app:layout_constraintBottom_toTopOf="@+id/rvsaved"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.008" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvsaved"
+        android:layout_width="389dp"
+        android:layout_height="679dp"
+        android:layout_marginTop="3dp"
+        android:layout_marginEnd="8dp"
+        android:padding="8dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView" />
+
+<!--    <ProgressBar-->
+<!--        android:id="@+id/progressBar"-->
+<!--        style="?android:attr/progressBarStyle"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_centerInParent="true"-->
+<!--        android:progressTint="#7CB342"-->
+<!--        android:visibility="visible"-->
+<!--        app:layout_constraintBottom_toBottomOf="@+id/rvsaved"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintHorizontal_bias="0.498"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toTopOf="@+id/rvsaved"-->
+<!--        app:layout_constraintVertical_bias="0.401" />-->
+
+<!--    <TextView-->
+<!--        android:id="@+id/errorTextView"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:gravity="center_horizontal"-->
+<!--        android:padding="8dp"-->
+<!--        android:textStyle="italic"-->
+<!--        app:layout_constraintBottom_toBottomOf="@+id/rvsaved"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintHorizontal_bias="0.498"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toTopOf="@+id/rvsaved"-->
+<!--        app:layout_constraintVertical_bias="0.424" />-->
+
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

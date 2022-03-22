@@ -12,14 +12,20 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Cryptonet">
         <activity
-            android:name=".FilterCrypto"
-            android:exported="false" />
+            android:name=".ui.SavedCrypto"
+            android:label="            Bookmarked"
+            android:theme="@style/Theme.savedCrypto"
+            android:exported="false">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.moringaschool.cryptonet.ui.ShowdetailActivity"/>
+        </activity>
         <activity
-            android:name=".Activity_login"
+            android:name=".ui.Activity_login"
             android:exported="true"
             android:theme="@style/Theme.login" />
         <activity
-            android:name=".Activity_create_account"
+            android:name=".ui.Activity_create_account"
             android:exported="true"
             android:theme="@style/Theme.account_create" />
         <activity

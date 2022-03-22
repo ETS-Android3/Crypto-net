@@ -59,15 +59,17 @@ dependencies {
     implementation 'com.google.android.material:material:1.5.0'
     implementation 'androidx.constraintlayout:constraintlayout:2.1.3'
 
-    //    Firebase
+    //Firebase
     implementation platform('com.google.firebase:firebase-bom:26.4.0')
     implementation 'com.google.firebase:firebase-analytics'
     implementation 'com.google.firebase:firebase-database'
     implementation 'com.firebaseui:firebase-ui-database:7.1.1'
 
-//    Authentication
+    //Authentication
     implementation 'com.google.firebase:firebase-auth'
 
+   //animation library
+    implementation 'com.daimajia.androidanimations:library:2.4@aar'
 
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.3'
