@@ -1,5 +1,7 @@
 package com.moringaschool.cryptonet.models;
 
+import com.google.firebase.database.DataSnapshot;
+
 public class Save {
     private String CoinShorName;
     private String CoinLongName;
@@ -13,7 +15,7 @@ public class Save {
         return CoinShorName;
     }
 
-    public void setCoinShorName(String coinShorName) {
+    public void setCoinShorName(DataSnapshot coinShorName) {
         CoinShorName = coinShorName;
     }
 
@@ -21,7 +23,7 @@ public class Save {
         return CoinLongName;
     }
 
-    public void setCoinLongName(String coinLongName) {
+    public void setCoinLongName(DataSnapshot coinLongName) {
         CoinLongName = coinLongName;
     }
 
