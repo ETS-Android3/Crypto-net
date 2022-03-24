@@ -3,35 +3,37 @@ package com.moringaschool.cryptonet.models;
 import com.google.firebase.database.DataSnapshot;
 
 public class Save {
-    private String CoinShorName;
-    private String CoinLongName;
-    private String money;
+    private String CoinShortNameSaved;
+    private String CoinLongNameSaved;
+    private String moneySaved;
+
+
 
     public Save(){
 
     }
 
-    public String getCoinShorName() {
-        return CoinShorName;
+    public String getCoinShortNameSaved() {
+        return CoinShortNameSaved;
     }
 
-    public void setCoinShorName(DataSnapshot coinShorName) {
-        CoinShorName = coinShorName;
+    public void setCoinShortNameSaved(String coinShortNameSaved) {
+        CoinShortNameSaved = coinShortNameSaved;
     }
 
-    public String getCoinLongName() {
-        return CoinLongName;
+    public String getCoinLongNameSaved() {
+        return CoinLongNameSaved;
     }
 
-    public void setCoinLongName(DataSnapshot coinLongName) {
-        CoinLongName = coinLongName;
+    public void setCoinLongNameSaved(String coinLongNameSaved) {
+        CoinLongNameSaved = coinLongNameSaved;
     }
 
-    public String getMoney() {
-        return money;
+    public String getMoneySaved() {
+        return moneySaved;
     }
 
-    public void setMoney(String money) {
-        this.money = money;
+    public void setMoneySaved(String moneySaved) {
+        this.moneySaved = moneySaved;
     }
 }

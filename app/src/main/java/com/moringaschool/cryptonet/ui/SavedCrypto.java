@@ -39,6 +39,7 @@ public class SavedCrypto extends AppCompatActivity {
     private RecyclerView recyclerView;
     private SaveCryptoAdapter saveCryptoAdapter;
     private DatabaseReference databaseReference;
+    Save save;
     private FirebaseUser user ;
 
     @Override
@@ -57,7 +58,9 @@ public class SavedCrypto extends AppCompatActivity {
 
         user = FirebaseAuth.getInstance().getCurrentUser();
         String uid = user.getUid();
-        DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference(Constant.FIREBASE_CHILD_BOOKMARK)
+        DatabaseReference databaseReference = FirebaseDatabase.getInstance()
+                .getReference()
+                .child(Constant.FIREBASE_CHILD_BOOKMARK)
                 .child(uid);
 
 
@@ -68,11 +71,40 @@ public class SavedCrypto extends AppCompatActivity {
 
         saveCryptoAdapter = new SaveCryptoAdapter(options,this);
 
+       //connecting the recyclerView with the adapter
+        recyclerView.setAdapter(saveCryptoAdapter);
+
+        databaseReference.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                for(DataSnapshot dataSnapshot: snapshot.getChildren()){
+                    Save saved = dataSnapshot.getValue(Save.class);
+                }
+                saveCryptoAdapter.notifyDataSetChanged();
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+                Log.d(TAG, "onCancelled: " + error);
+            }
+        });
 
 
-        Log.d(TAG, "onCreate: error " + options );
 
 
+    }
 
+    //function to tell the app to start getting the data from the database
+    @Override
+    public void onStart() {
+        super.onStart();
+        saveCryptoAdapter.startListening();
+    }
+
+    //function to tell the app to stop fetching the data from the database
+    @Override
+    public void onStop() {
+        super.onStop();
+        saveCryptoAdapter.stopListening();
     }
 }

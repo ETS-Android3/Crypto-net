@@ -37,6 +37,7 @@ public class CoinMarketListAdapter extends RecyclerView.Adapter<CoinMarketListAd
     private List<Datum> data;
     private Context mContext;
     private ItemClickListener mItemClickListener;
+    public ImageButton action_save;
 
 
     public CoinMarketListAdapter(List<Datum> data,  Context mContext, ItemClickListener itemClickListener) {
@@ -112,9 +113,18 @@ public class CoinMarketListAdapter extends RecyclerView.Adapter<CoinMarketListAd
                     }
                 });
 
+                bookmarkClick();
+                hidebookmark();
+
             }
         });
 
+    }
+
+    public void hidebookmark() {
+    }
+
+    public void bookmarkClick() {
     }
 
 
@@ -124,9 +134,9 @@ public class CoinMarketListAdapter extends RecyclerView.Adapter<CoinMarketListAd
     /**************************INNER CLASS WHICH IS A VIEWHOLDER****************************************/
     public class CoinMarketViewHolder extends RecyclerView.ViewHolder{
 
-        private TextView coinShortName,coinLongName,valueInKes,numbering,marketPercentage,marketPercentage2;
-        private ImageButton bookmarkIcon;
-        private Context mContext;
+        public TextView coinShortName,coinLongName,valueInKes,numbering,marketPercentage,marketPercentage2;
+        public ImageButton bookmarkIcon;
+        public Context mContext;
 
 
         /******************************VIEWHOLDER'S CONSTRUCTOR****************************************/
@@ -140,6 +150,7 @@ public class CoinMarketListAdapter extends RecyclerView.Adapter<CoinMarketListAd
             marketPercentage = itemView.findViewById(R.id.marketPercentage);
             marketPercentage2 = itemView.findViewById(R.id.marketPercentage2);
             bookmarkIcon = itemView.findViewById(R.id.bookmarkIcon);
+//            action_save = itemView.findViewById(R.id.action_save);
             mContext = itemView.getContext();
 
         }

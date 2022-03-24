@@ -40,7 +40,9 @@ public class SaveCryptoAdapter extends FirebaseRecyclerAdapter<Save,SaveCryptoAd
 
     @Override
     protected void onBindViewHolder(@NonNull SaveInnerClass holder, int position, @NonNull Save model) {
-
+        holder.short_txt.setText(model.getCoinShortNameSaved());
+        holder.name_txt.setText(model.getCoinLongNameSaved());
+        holder.price_txt.setText(model.getMoneySaved());
 
     }
 
