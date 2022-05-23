@@ -52,7 +52,7 @@
             android:layout_marginTop="24dp"
             android:layout_marginBottom="6dp"
             android:gravity="start|center_horizontal"
-            android:textColor="@color/white"
+            android:textColor="@color/black"
             android:text="BTC"
             android:textSize="14sp"
             app:layout_constraintBottom_toTopOf="@+id/coinLongName"

@@ -8,6 +8,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.recyclerview.widget.ItemTouchHelper;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
@@ -52,19 +53,38 @@ public class SaveCryptoAdapter extends FirebaseRecyclerAdapter<Save,SaveCryptoAd
         return new SaveInnerClass(view);
     }
 
-    public class SaveInnerClass  extends RecyclerView.ViewHolder{
+    public class SaveInnerClass extends RecyclerView.ViewHolder {
 
-        private TextView short_txt,price_txt,name_txt;
+        private TextView short_txt, price_txt, name_txt;
 
         public SaveInnerClass(@NonNull View itemView) {
             super(itemView);
-            short_txt=itemView.findViewById(R.id.short_txt);
-            name_txt=itemView.findViewById(R.id.name_txt);
-            price_txt=itemView.findViewById(R.id.price_txt);
+            short_txt = itemView.findViewById(R.id.short_txt);
+            name_txt = itemView.findViewById(R.id.name_txt);
+            price_txt = itemView.findViewById(R.id.price_txt);
 
         }
 
     }
+
+    //animations
+    ItemTouchHelper.SimpleCallback simpleCallback = new ItemTouchHelper.SimpleCallback(0, ItemTouchHelper.RIGHT | ItemTouchHelper.LEFT) {
+        @Override
+        public boolean onMove(@NonNull RecyclerView recyclerView, @NonNull RecyclerView.ViewHolder viewHolder, @NonNull RecyclerView.ViewHolder target) {
+            return false;
+        }
+
+        // to delete item
+        @Override
+        public void onSwiped(@NonNull RecyclerView.ViewHolder viewHolder, int direction) {
+            switch (direction) {
+                case ItemTouchHelper.LEFT:
+                    break;
+            }
+
+        }
+    };
+
 
 
 
