@@ -10,7 +10,8 @@ Crypto net is an informational application and is used to convert global cryptoc
 ```
 
 ### Screenshoots
-![](screenshoot/splashScreen.jpg)
+![](screenshoot/cryptonet_splashScreen.png)
+
 
 ## TOC
 
@@ -33,7 +34,7 @@ Crypto net is an informational application and is used to convert global cryptoc
 ### Prerequisites
 
 * Android Smart phone.
-* download the app from Playstore.  
+* download the app from Playstore.(still working on this)
 * Internet Connection i.e WIFI or mobile data.
 
 
